@@ -1,0 +1,23 @@
+rm /root/rsync_daily.log
+rsync \
+-av \
+--delete \
+--exclude=/dev/* \
+--exclude=/home/*/.gvfs \
+--exclude=/home/*/.mozilla/firefox/*/Cache \
+--exclude=/home/*/.cache/chromium \
+--exclude=/home/*/.thumbnails \
+--exclude=/media/* \
+--exclude=/mnt/* \
+--exclude=/proc/* \
+--exclude=/run/user/*/gvfs \
+--exclude=/sys/* \
+--exclude=/tmp/* \
+--exclude=/home/*/.local/share/Trash \
+--exclude=/etc/fstab \
+--exclude=/var/run/* \
+--exclude=/var/lock/* \
+--exclude=/lib/modules/*/volatile/.mounted \
+--exclude=/var/cache/apt/archives/* \
+/ \
+/media/sdc/ > /root/rsync_daily.log
